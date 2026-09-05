@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ExternalLink } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState, type ReactNode } from "react";
 
@@ -10,62 +10,73 @@ type Entry = {
   period: string;
   slug?: string;
   brand?: string;
+  bullets?: string[];
+  liveUrl?: string;
 };
 
 const ENTRIES: Entry[] = [
   {
-    company: "Linear",
-    role: "Senior Design Engineer",
-    period: "Mar 2024 – Present",
-    slug: "linear",
-    brand: "#5E6AD2",
+    company: "SkillHub",
+    role: "Full-Stack Developer | Independent Project",
+    period: "Aug 2026 – Present",
+    brand: "#ff4b3e",
+    bullets: [
+      "Community marketplace for skill providers & residential societies to organize learning events.",
+      "Built Django backend for event requests, program approvals, and participant management.",
+      "Developed AI-powered personalized event recommendations.",
+    ],
   },
   {
-    company: "Vercel",
-    role: "Product Designer",
-    period: "Aug 2022 – Feb 2024",
-    slug: "vercel",
-    brand: "#0a0a0a",
+    company: "AutoSwift",
+    role: "Full-Stack Developer Intern | E-Business Applications",
+    period: "Jun 2026 – Jul 2026",
+    brand: "#00e5ff",
+    liveUrl: "https://easygarage-frontend.vercel.app/",
+    bullets: [
+      "Doorstep automobile service & billing platform with real-time digital receipt generation.",
+      "Integrated WhatsApp Business API for automated invoices and service updates.",
+      "Built OpenAI virtual assistant for customer support and preliminary repair cost estimates.",
+    ],
   },
   {
-    company: "Stripe",
-    role: "Design Engineer",
-    period: "Jun 2021 – Jul 2022",
-    slug: "stripe",
-    brand: "#635BFF",
+    company: "MediAI",
+    role: "Fullstack Developer | Independent Project",
+    period: "Apr 2026 – May 2026",
+    brand: "#10b981",
+    liveUrl: "https://medifind-steel.vercel.app/",
+    bullets: [
+      "Live pharmacy medicine search platform with interactive Leaflet map interface.",
+      "Django REST Framework backend for real-time inventory updates and pricing.",
+      "AI-enabled medicine recommendations and location-based pharmacy identification.",
+    ],
   },
   {
-    company: "Figma",
-    role: "UI Engineer",
-    period: "Sep 2019 – May 2021",
-    slug: "figma",
-    brand: "#A259FF",
+    company: "ResQTrack",
+    role: "Full Stack Participant | Hackathon Finalist",
+    period: "Mar 2026",
+    brand: "#8b5cf6",
+    liveUrl: "https://resq-seven-rose.vercel.app/",
+    bullets: [
+      "Animal rescue & NGO coordination platform integrating OpenStreetMap and geolocation.",
+      "SMS emergency notification alert system.",
+      "AI-based injury classification system (Mild / Medium / Severe).",
+    ],
   },
   {
-    company: "Notion",
-    role: "Product Designer",
-    period: "Jan 2018 – Aug 2019",
-    slug: "notion",
-    brand: "#111111",
-  },
-  {
-    company: "Airbnb",
-    role: "Design Intern",
-    period: "May 2017 – Dec 2017",
-    slug: "airbnb",
-    brand: "#FF5A5F",
-  },
-  {
-    company: "Freelance",
-    role: "Designer & Developer",
-    period: "2015 – 2017",
-    brand: "#0AE448",
+    company: "OnboardX",
+    role: "Full-Stack Developer Intern | Krutanic Solution",
+    period: "Jun 2025 – Aug 2025",
+    brand: "#f59e0b",
+    bullets: [
+      "Web partner onboarding platform with document verification & approval management.",
+      "Dynamic checklist and multi-stage approval workflows with activity logging.",
+    ],
   },
 ];
 
-const COLLAPSED_COUNT = 2.5;
-const ROW_HEIGHT = 64;
-const ROW_GAP = 8;
+const COLLAPSED_COUNT = 3;
+const ROW_HEIGHT = 80;
+const ROW_GAP = 12;
 
 export function Experience(): ReactNode {
   const [open, setOpen] = useState(false);
@@ -78,7 +89,7 @@ export function Experience(): ReactNode {
   return (
     <div className="flex flex-col gap-3">
       <h3 className="text-foreground text-[15px] font-semibold tracking-tight">
-        Experience
+        Internships & Key Projects
       </h3>
       <div
         className={`border-foreground/5 bg-foreground/2 dark:bg-foreground/5 relative overflow-hidden rounded-4xl border px-2 pt-2 sm:px-4 sm:pt-4 ${
@@ -94,24 +105,47 @@ export function Experience(): ReactNode {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           style={{ overflow: "hidden" }}
         >
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-3">
             {ENTRIES.map((entry) => (
               <li
                 key={`${entry.company}-${entry.period}`}
-                className="bg-background border-foreground/5 flex items-center gap-4 rounded-3xl border p-2"
-                style={{ minHeight: ROW_HEIGHT }}
+                className="bg-background border-foreground/5 flex flex-col gap-2 rounded-3xl border p-4 shadow-sm"
               >
-                <CompanyLogo entry={entry} />
-                <div className="flex min-w-0 flex-col">
-                  <span className="text-foreground text-[17px] font-semibold tracking-tight sm:text-[18px]">
-                    {entry.company}
-                  </span>
-                  <span className="text-foreground/65 mt-0.5 text-[14px] tracking-tight sm:text-[15px]">
-                    {entry.role}
-                    <span className="text-foreground/30 mx-2">•</span>
-                    <span className="text-foreground/55">{entry.period}</span>
-                  </span>
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <CompanyLogo entry={entry} />
+                    <div className="flex min-w-0 flex-col">
+                      <span className="text-foreground text-[17px] font-semibold tracking-tight sm:text-[18px]">
+                        {entry.company}
+                      </span>
+                      <span className="text-foreground/65 text-[14px] tracking-tight sm:text-[15px]">
+                        {entry.role}
+                        <span className="text-foreground/30 mx-2">•</span>
+                        <span className="text-foreground/55">{entry.period}</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {entry.liveUrl && (
+                    <a
+                      href={entry.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/5 px-3 py-1 text-xs font-medium text-foreground hover:bg-foreground/10 transition-colors"
+                    >
+                      <span>Live Site</span>
+                      <ExternalLink className="h-3 w-3 text-sky-400" />
+                    </a>
+                  )}
                 </div>
+
+                {entry.bullets && entry.bullets.length > 0 && (
+                  <ul className="ml-14 flex flex-col gap-1 text-[14px] text-foreground/75 list-disc pl-4">
+                    {entry.bullets.map((bullet, idx) => (
+                      <li key={idx}>{bullet}</li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
@@ -174,7 +208,7 @@ function CompanyLogo({ entry }: { entry: Entry }): ReactNode {
       aria-hidden="true"
       style={{
         borderRadius: 14,
-        ...(entry.slug ? {} : { backgroundColor: entry.brand }),
+        ...(entry.slug ? {} : { backgroundColor: entry.brand || "#ff4b3e" }),
       }}
     >
       {entry.slug ? (

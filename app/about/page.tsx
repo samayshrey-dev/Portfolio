@@ -1,7 +1,7 @@
 import { Education } from "@/components/about/education";
 import { Experience } from "@/components/about/experience";
+import { Competitions } from "@/components/about/competitions";
 import { PolaroidStrip } from "@/components/about/polaroid-strip";
-import { Skills } from "@/components/about/skills";
 import { Stack } from "@/components/about/stack";
 import { ContactCard } from "@/components/contact/contact-card";
 import { FadeIn } from "@/components/ui/motion-primitives";
@@ -11,7 +11,7 @@ import type { ReactNode } from "react";
 
 export const metadata: Metadata = createMetadata({
   title: "About",
-  description: "About me, background, and how to get in touch.",
+  description: "About Samayshrey Patnaik, background, experience, and contact.",
   path: "/about",
 });
 
@@ -26,29 +26,29 @@ export default function AboutPage(): ReactNode {
         <FadeIn delay={0.5}>
           <div className="rounded-4xl border border-foreground/5 bg-foreground/1.5 p-8 sm:p-12 dark:bg-foreground/3">
             <h1 className="font-serif text-[1.75rem] font-medium tracking-tight text-foreground sm:text-[2rem]">
-              Hello! I&rsquo;m <span className="border-b border-foreground/30 pb-0.5">Josh Mercer</span>.
+              Hello! I&rsquo;m <span className="border-b border-foreground/30 pb-0.5">Samayshrey Patnaik</span>.
             </h1>
             <div className="mt-8 space-y-6 text-[17px] leading-[1.7] tracking-tight text-foreground/75 sm:text-[18px]">
               <p>
-                A <strong className="font-semibold text-foreground">product designer and frontend engineer</strong> passionate about building intuitive, human-centered digital experiences. With a background in <strong className="font-semibold text-foreground">visual craft</strong> and <strong className="font-semibold text-foreground">interaction design</strong>, I bring a unique blend of design thinking and technical execution to every project.
+                A <strong className="font-semibold text-foreground">Third-year Computer Science Engineering student at SRMIST</strong> and <strong className="font-semibold text-foreground">Full-Stack & AI Developer</strong> passionate about engineering scalable, real-world web applications and intelligent systems.
               </p>
               <p>
-                My journey into design began when I realized how often good user experience was missing from powerful tools. That led me to embrace <strong className="font-semibold text-foreground">user-centered design</strong> as both a mindset and a craft, one that balances clarity, creativity, and functionality.
+                Hands-on exposure through internships, hackathons, and independent projects in <strong className="font-semibold text-foreground">React.js, Django, REST APIs, PostgreSQL, Leaflet.js, and OpenAI integration</strong>.
               </p>
               <p>
-                Currently leading design at small product teams shipping software for <strong className="font-semibold text-foreground">creative professionals</strong>, I&rsquo;m always looking for opportunities to <strong className="font-semibold text-foreground">shape thoughtful interfaces and build scalable design systems</strong>.
+                Beyond engineering, I am an active member of a <strong className="font-semibold text-foreground">music band</strong>, participating in national-level music competitions, inter-college band performances, and dance events.
               </p>
             </div>
           </div>
         </FadeIn>
       </section>
 
-      <section className="mx-auto w-full max-w-[40rem] px-6 pb-20 sm:px-10 sm:pb-28">
+      <section className="mx-auto w-full max-w-[44rem] px-6 pb-20 sm:px-10 sm:pb-28">
         <FadeIn delay={0.1}>
           <div className="flex flex-col gap-10">
             <Experience />
             <Education />
-            <Skills />
+            <Competitions />
             <Stack />
           </div>
         </FadeIn>

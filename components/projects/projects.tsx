@@ -1,7 +1,7 @@
 import {
   ArrowRight,
-  Bot,
   Compass,
+  ExternalLink,
   Layers,
   LineChart,
   Sparkles,
@@ -13,12 +13,6 @@ import Link from "next/link";
 
 import { FadeIn } from "@/components/ui/motion-primitives";
 
-/**
- * Project imagery below is mockup-only. All visuals are sourced from
- * Dribbble and credit belongs to the original creators on dribbble.com.
- * Replace these with your own work before shipping.
- */
-
 type Project = {
   id: string;
   icon: ComponentType<{ className?: string }>;
@@ -26,141 +20,126 @@ type Project = {
   title: string;
   description: string;
   meta: string;
+  tech: string[];
   imageRatio: number;
   image: string;
   imageAlt: string;
+  liveUrl?: string;
 };
 
 const PROJECTS: Project[] = [
   {
-    id: "loom",
+    id: "eventhub",
     icon: Sparkles,
-    iconLabel: "LOOM",
-    title:
-      "An AI writing companion that thinks alongside you, allowing you to capture ideas, edits, and drafts in one focused space.",
+    iconLabel: "SkillHub",
+    title: "Community Learning & Event Marketplace",
     description:
-      "I designed Loom, a focused writing surface where ideas, edits, and drafts coexist without the chat clutter.",
-    meta: "Design Engineer, 2024",
-    imageRatio: 752 / 497,
-    image:
-      "https://cdn.dribbble.com/userupload/46128964/file/b92b9d268dd928642ca94bd49e32923a.jpg?resize=752x497&vertical=center",
-    imageAlt: "Loom AI writing companion mockup",
+      "A platform enabling skill providers & residential societies to organize learning events. Built with Django REST Framework, PostgreSQL, and AI recommendations.",
+    meta: "Full-Stack Developer | Aug 2026 – Present",
+    tech: ["Python", "Django", "PostgreSQL", "OpenStreetMap", "FCM", "GitHub"],
+    imageRatio: 1024 / 768,
+    image: "/assets/posters/skillhub.png",
+    imageAlt: "SkillHub Community Learning & Event Marketplace",
   },
   {
-    id: "atlas",
+    id: "autoswift",
     icon: Compass,
-    iconLabel: "Atlas Studio",
-    title: "A two week brand and product sprint for a creative studio.",
+    iconLabel: "AutoSwift",
+    title: "Mobile Automotive Service & Billing Platform",
     description:
-      "End to end identity, marketing site, and a small product surface designed to feel quietly confident across every touchpoint.",
-    meta: "Product & Brand Designer, 2025",
+      "Doorstep automobile service & billing platform with technician repair tracking, WhatsApp API invoice sharing, operational dashboards, and OpenAI AI assistant.",
+    meta: "Full-Stack Developer Intern | Jun 2026 – Jul 2026",
+    tech: ["React.js", "Bootstrap", "Django", "DRF", "WhatsApp API", "OpenAI"],
     imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/24599416/file/original-1ae5075dcd129aebb16bdbca24b41ac7.png?resize=1024x768&vertical=center",
-    imageAlt: "Atlas Studio brand and product sprint mockup",
+    image: "/assets/posters/autoswift.png",
+    imageAlt: "AutoSwift Billing & Service Platform Dashboard",
+    liveUrl: "https://easygarage-frontend.vercel.app/",
   },
   {
-    id: "rhythm",
+    id: "medfinder",
     icon: LineChart,
-    iconLabel: "Rhythm",
-    title: "Calm analytics for indie founders.",
+    iconLabel: "MediAI",
+    title: "Live Pharmacy Medicine Search Platform",
     description:
-      "A weekly digest that turns raw product data into a simple narrative. Built so you can read it on a Sunday with coffee.",
-    meta: "Founder & Designer, 2024",
+      "Interactive map-based platform enabling users to search for medicines, track live pharmacy inventory, get price updates, and AI medicine suggestions.",
+    meta: "Fullstack Developer | Apr 2026 – May 2026",
+    tech: ["Python", "Django", "DRF", "SQL Server", "Geolocation APIs", "AI Search"],
     imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/47357856/file/75841fa59f32f05ca6c5ddf02d08dfe6.png?resize=1024x768&vertical=center",
-    imageAlt: "Rhythm calm analytics mockup",
+    image: "/assets/posters/mediai.png",
+    imageAlt: "MediAI Platform",
+    liveUrl: "https://medifind-steel.vercel.app/",
   },
   {
-    id: "groove",
+    id: "resqtracker",
     icon: Wand2,
-    iconLabel: "Groove",
-    title:
-      "Reimagining the booking flow for a music school, asisting thousands of students in finding the right lessons.",
+    iconLabel: "ResQTrack",
+    title: "Animal Rescue & NGO Coordination Platform",
     description:
-      "I led a redesign of the lesson booking experience, cutting drop off in half and making the schedule feel like a calendar people actually want to open.",
-    meta: "Lead Designer, 2023",
+      "Hackathon finalist platform for stray animal rescue and NGO coordination with Leaflet map tracking, SMS emergency alerts, and AI injury classification.",
+    meta: "Hackathon Finalist | Mar 2026",
+    tech: ["React.js", "Node.js", "SQL", "Leaflet.js", "OpenStreetMap", "SMS API"],
     imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/43955214/file/original-d4cde1de803e84b97d8892e3444c04b0.png?resize=1024x768&vertical=center",
-    imageAlt: "Groove music school booking flow mockup",
+    image: "/assets/posters/resqtrack.png",
+    imageAlt: "ResQTrack Animal Rescue Platform",
+    liveUrl: "https://resq-seven-rose.vercel.app/",
   },
   {
-    id: "fieldnote",
+    id: "onboardx",
     icon: Layers,
-    iconLabel: "Fieldnote",
-    title:
-      "A pocket sized research tool for design teams that want to get out of their docs and into the world.",
+    iconLabel: "OnboardX",
+    title: "Smart Onboarding & Approval System",
     description:
-      "Capture quotes, tag patterns, and synthesize themes in one place. The interface stays out of the way so the thinking can happen.",
-    meta: "Design Engineer, 2024",
+      "Web partner onboarding platform for partner registration, dynamic checklist document verification, multi-stage approval workflows, and activity logging.",
+    meta: "Full-Stack Developer Intern | Jun 2025 – Aug 2025",
+    tech: ["React.js", "Django", "DRF", "PostgreSQL", "Bootstrap", "JWT"],
     imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/30310902/file/original-621e7fe47be9d11ee14544456c693bec.png?resize=1024x768&vertical=center",
-    imageAlt: "Fieldnote pocket sized research tool mockup",
-  },
-  {
-    id: "talkback",
-    icon: Bot,
-    iconLabel: "Talkback",
-    title: "A friendlier interface for talking to language models.",
-    description:
-      "An exploration of how AI chat could feel less like a terminal and more like a conversation with a curious friend.",
-    meta: "Independent Project, 2025",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/16560717/file/original-c6f745d50302d66609bfe080f99f5396.png?resize=1024x768&vertical=center",
-    imageAlt: "Talkback friendlier AI chat interface mockup",
+    image: "/assets/posters/onboardx.png",
+    imageAlt: "OnboardX Platform",
   },
 ];
 
-export type ProjectsProps = {
+interface ProjectsProps {
   withHeadline?: boolean;
   viewMoreVisible?: boolean;
-};
+}
 
 export function Projects({
-  withHeadline = false,
+  withHeadline = true,
   viewMoreVisible = false,
-}: ProjectsProps): ReactNode {
-  const items = viewMoreVisible ? PROJECTS.slice(0, 4) : PROJECTS;
+}: ProjectsProps = {}): ReactNode {
+  const displayedProjects = viewMoreVisible ? PROJECTS.slice(0, 3) : PROJECTS;
 
   return (
-    <section className="relative w-full">
+    <section className="relative w-full py-24 sm:py-32">
       <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
-        {withHeadline ? (
-          <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
-            <h2 className="font-serif text-[2.5rem] font-medium leading-[1.05] tracking-tight text-foreground md:text-[3rem] lg:text-[3.5rem]">
-              My projects
-            </h2>
-            <p className="max-w-[33ch] text-[18px] leading-[1.45] tracking-tight text-foreground/65 sm:text-[20px]">
-              From playful experiments to thoughtful systems, a look at the
-              work I&rsquo;m proud to have shipped.
+        {withHeadline && (
+          <FadeIn className="flex flex-col gap-3 pb-12 sm:pb-16">
+            <p className="text-[15px] font-semibold tracking-tight text-foreground/60">
+              Featured Work
             </p>
+            <h2 className="text-[2.25rem] font-medium leading-tight tracking-tight text-foreground sm:text-[2.75rem]">
+              Internships & Independent Projects
+            </h2>
           </FadeIn>
-        ) : null}
+        )}
 
-        <div className="columns-1 gap-6 md:columns-2 md:gap-7">
-          {items.map((project, index) => (
+        <div className="flex flex-col gap-16 sm:gap-24">
+          {displayedProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
 
-        {viewMoreVisible ? (
-          <div className="mt-12 flex justify-center sm:mt-16">
+        {viewMoreVisible && (
+          <FadeIn className="mt-12 flex justify-center sm:mt-16">
             <Link
               href="/projects"
-              className="border border-foreground/8 focus-ring group inline-flex cursor-pointer items-center gap-2 rounded-xl bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-foreground/5 hover:border-foreground/30"
             >
-              View all projects
-              <ArrowRight
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
-                aria-hidden="true"
-              />
+              <span>View All Projects</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
-          </div>
-        ) : null}
+          </FadeIn>
+        )}
       </div>
     </section>
   );
@@ -174,50 +153,90 @@ function ProjectCard({
   index: number;
 }): ReactNode {
   const Icon = project.icon;
-  return (
-    <FadeIn
-      delay={Math.min(index * 0.06, 0.3)}
-      className="mb-6 break-inside-avoid md:mb-7"
-    >
-      <article className="project-card flex cursor-pointer flex-col gap-4 rounded-3xl border border-foreground/8 bg-background p-3 sm:p-3.5">
-        <header className="flex items-center gap-2.5 px-1 pt-2">
-          <span className="border-foreground/10 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border bg-background">
-            <Icon className="h-3.5 w-3.5 text-foreground" aria-hidden="true" />
-          </span>
-          <span className="text-sm font-medium tracking-tight text-foreground">
-            {project.iconLabel}
-          </span>
-        </header>
+  const isEven = index % 2 === 0;
 
+  return (
+    <FadeIn>
+      <div className="group border-foreground/8 bg-foreground/2 dark:bg-foreground/5 grid grid-cols-1 gap-8 rounded-4xl border p-6 transition-all duration-300 hover:border-foreground/15 sm:p-10 lg:grid-cols-12 lg:items-center">
         <div
-          className="project-card__image ring-foreground/5 relative w-full overflow-hidden rounded-2xl bg-foreground/5 ring-1"
-          style={{ aspectRatio: project.imageRatio }}
+          className={`flex flex-col gap-5 lg:col-span-6 ${
+            isEven ? "lg:order-1" : "lg:order-2"
+          }`}
         >
-          <div className="project-card__image-inner">
-            <Image
-              src={project.image}
-              alt={project.imageAlt}
-              fill
-              sizes="(min-width: 1024px) 540px, (min-width: 768px) 45vw, 100vw"
-              className="object-cover"
-              priority={index < 2}
-            />
+          <div className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-background px-3.5 py-1.5 text-xs font-semibold text-foreground/80 shadow-xs w-fit">
+            <Icon className="h-3.5 w-3.5 text-sky-400" />
+            <span>{project.iconLabel}</span>
+          </div>
+
+          <h3 className="text-[1.75rem] font-medium leading-tight tracking-tight text-foreground sm:text-[2rem]">
+            {project.title}
+          </h3>
+
+          <p className="text-[16px] leading-relaxed text-foreground/70">
+            {project.description}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5">
+            {project.tech.map((t) => (
+              <span
+                key={t}
+                className="rounded-lg border border-foreground/10 bg-background/50 px-2.5 py-1 text-xs font-medium text-foreground/75"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-between gap-4 pt-2">
+            <span className="text-xs font-medium text-foreground/50">
+              {project.meta}
+            </span>
+
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-3.5 py-1.5 text-xs font-semibold text-foreground transition-all hover:bg-foreground/10 hover:border-foreground/30"
+              >
+                <span>Live Demo</span>
+                <ExternalLink className="h-3.5 w-3.5 text-sky-400" />
+              </a>
+            )}
           </div>
         </div>
 
-        <div className="flex flex-col gap-2.5 px-1 pb-1">
-          <h3 className="text-[20px] font-medium leading-[1.2] tracking-tight text-foreground sm:text-[22px]">
-            {project.title}
-          </h3>
-          <p className="text-[14px] leading-normal tracking-tight text-foreground/65 sm:text-[15px]">
-            {project.description}
-          </p>
+        <div
+          className={`lg:col-span-6 ${
+            isEven ? "lg:order-2" : "lg:order-1"
+          }`}
+        >
+          {project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative block aspect-video w-full overflow-hidden rounded-3xl border border-foreground/10 bg-background/80 shadow-md group-hover:border-foreground/25"
+            >
+              <Image
+                src={project.image}
+                alt={project.imageAlt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-1.03"
+              />
+            </a>
+          ) : (
+            <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-foreground/10 bg-background/80 shadow-md">
+              <Image
+                src={project.image}
+                alt={project.imageAlt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-1.03"
+              />
+            </div>
+          )}
         </div>
-
-        <p className="px-1 pb-2 text-[12px] tracking-tight text-foreground/50">
-          {project.meta}
-        </p>
-      </article>
+      </div>
     </FadeIn>
   );
 }

@@ -1,6 +1,4 @@
-import { Mail } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { Mail, Phone, Github, Linkedin } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { ContactCardCtas } from "./contact-card-ctas";
@@ -32,37 +30,38 @@ export function ContactCard(): ReactNode {
                 <h2 className="font-serif text-[2.25rem] font-medium leading-[1.05] tracking-tight text-foreground sm:text-[2.75rem] lg:text-[3.25rem]">
                   Let&rsquo;s connect
                 </h2>
-                <p className="max-w-[29ch] text-[18px] leading-[1.4] tracking-tight text-foreground/65 sm:text-[22px] mb-6">
-                  I&rsquo;m always open to discussing new projects, creative
-                  ideas, or opportunities to be part of your visions. Just reach out!
+                <p className="max-w-[32ch] text-[18px] leading-[1.4] tracking-tight text-foreground/65 sm:text-[22px] mb-6">
+                  I&rsquo;m always open to discussing new projects, internship opportunities, or AI & full-stack ideas. Feel free to reach out!
                 </p>
                 <ContactCardCtas />
               </div>
 
               <div className="border-foreground/8 flex flex-col items-center justify-center gap-6 rounded-[1.1rem] border bg-background p-6 sm:p-8">
-                <div className="flex items-center gap-3 opacity-75">
-                  <SocialIcon
-                    href="mailto:hello@example.com"
-                    label="Email"
-                    lucideIcon={Mail}
-                  />
-                  <SocialIcon
-                    href="https://www.linkedin.com"
-                    label="LinkedIn"
-                    imageSrc="/linkedin.svg"
-                  />
-                  <SocialIcon
-                    href="https://x.com"
-                    label="X"
-                    imageSrc="/x.svg"
-                  />
+                <div className="flex flex-col gap-3 w-full">
+                  <a href="mailto:samayshrey.p@gmail.com" className="flex items-center gap-3 rounded-xl border border-foreground/10 bg-foreground/5 p-3 text-[14px] text-foreground font-medium hover:bg-foreground/10 transition-colors">
+                    <Mail className="h-4 w-4 text-rose-500" />
+                    <span>samayshrey.p@gmail.com</span>
+                  </a>
+                  <a href="tel:+917894106734" className="flex items-center gap-3 rounded-xl border border-foreground/10 bg-foreground/5 p-3 text-[14px] text-foreground font-medium hover:bg-foreground/10 transition-colors">
+                    <Phone className="h-4 w-4 text-emerald-500" />
+                    <span>+91 78941 06734</span>
+                  </a>
+                  <a href="https://github.com/samayshrey-dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl border border-foreground/10 bg-foreground/5 p-3 text-[14px] text-foreground font-medium hover:bg-foreground/10 transition-colors">
+                    <Github className="h-4 w-4 text-sky-400" />
+                    <span>github.com/samayshrey-dev</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/samayshrey-patnaik" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl border border-foreground/10 bg-foreground/5 p-3 text-[14px] text-foreground font-medium hover:bg-foreground/10 transition-colors">
+                    <Linkedin className="h-4 w-4 text-blue-500" />
+                    <span>linkedin.com/in/samayshrey-patnaik</span>
+                  </a>
                 </div>
-                <div className="flex flex-col items-center gap-1 text-center">
+
+                <div className="flex flex-col items-center gap-1 text-center pt-2">
                   <p className="text-[13px] tracking-tight text-foreground/70">
-                    2026 &copy; Built with Next.js
+                    2026 &copy; Samayshrey Patnaik
                   </p>
                   <p className="text-[12px] tracking-tight text-foreground/45">
-                    By React Bits Pro
+                    Chennai, India
                   </p>
                 </div>
               </div>
@@ -71,43 +70,5 @@ export function ContactCard(): ReactNode {
         </div>
       </FadeIn>
     </section>
-  );
-}
-
-function SocialIcon({
-  href,
-  label,
-  lucideIcon: LucideIcon,
-  imageSrc,
-}: {
-  href: string;
-  label: string;
-  lucideIcon?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-  imageSrc?: string;
-}): ReactNode {
-  const isExternal = href.startsWith("http");
-  const props = isExternal
-    ? { target: "_blank", rel: "noopener noreferrer" }
-    : {};
-  return (
-    <Link
-      href={href}
-      aria-label={label}
-      className="border-foreground/8 hover:border-foreground/15 focus-ring inline-flex h-11 w-11 items-center justify-center rounded-xl border bg-background text-foreground/70 transition-colors hover:text-foreground"
-      {...props}
-    >
-      {LucideIcon ? (
-        <LucideIcon className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
-      ) : imageSrc ? (
-        <Image
-          src={imageSrc}
-          alt=""
-          width={14}
-          height={14}
-          aria-hidden="true"
-          className="max-h-[14px] max-w-[14px] object-contain dark:invert"
-        />
-      ) : null}
-    </Link>
   );
 }

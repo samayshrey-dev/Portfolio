@@ -4,8 +4,8 @@ import { HeroCtas } from "./hero-ctas";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
 import { PortraitMorph } from "./portrait-morph";
 
-const PORTRAIT_SRC = "/josh.webp";
-const PORTRAIT_HOVER_SRC = "/josh_wave.webp";
+const PORTRAIT_SRC = "/samayshrey.jpg";
+const PORTRAIT_HOVER_SRC = "/samayshrey.jpg";
 
 export function Hero(): ReactNode {
   return (
@@ -18,19 +18,18 @@ export function Hero(): ReactNode {
               <span aria-hidden="true" className="mx-0.5">
                 👋
               </span>
-              , I&rsquo;m Josh
+              , I&rsquo;m Samayshrey Patnaik
             </p>
 
-            <h1 className="text-[2.75rem] font-medium leading-[1.05] tracking-tight text-foreground md:text-[2.5rem] lg:text-[3.65rem]">
-              <span className="block whitespace-nowrap">
-                Design engineer &
+            <h1 className="text-[2.25rem] font-medium leading-[1.08] tracking-tight text-foreground sm:text-[2.75rem] lg:text-[3.35rem]">
+              <span className="block">
+                Full-Stack &
               </span>
-              <span className="block whitespace-nowrap">AI enthusiast</span>
+              <span className="block">AI Application Developer</span>
             </h1>
 
-            <p className="max-w-[34ch] text-[22px] leading-[1.4] tracking-tight text-foreground/65">
-              Independent engineer focused on interfaces that feel calm,
-              considered, and quietly fast.
+            <p className="max-w-[38ch] text-[20px] leading-[1.4] tracking-tight text-foreground/65">
+              Third-year Computer Science Engineering student at SRMIST focused on high-performance web applications, API architectures, and AI-driven solutions.
             </p>
 
             <HeroCtas />
@@ -42,7 +41,7 @@ export function Hero(): ReactNode {
                 <PortraitMorph
                   srcA={PORTRAIT_SRC}
                   srcB={PORTRAIT_HOVER_SRC}
-                  alt="Josh portrait"
+                  alt="Samayshrey Patnaik portrait"
                 />
               </div>
             </div>
