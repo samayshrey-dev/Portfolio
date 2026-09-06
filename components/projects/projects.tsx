@@ -42,20 +42,6 @@ const PROJECTS: Project[] = [
     imageAlt: "SkillHub Community Learning & Event Marketplace",
   },
   {
-    id: "onboardx",
-    icon: Layers,
-    iconLabel: "OnboardX",
-    title: "Smart Onboarding & Approval System",
-    description:
-      "Web partner onboarding platform for partner registration, dynamic checklist document verification, multi-stage approval workflows, and activity logging.",
-    meta: "Full-Stack Developer Intern | Jun 2025 – Aug 2025",
-    tech: ["React.js", "Django", "DRF", "PostgreSQL", "Bootstrap", "JWT"],
-    imageRatio: 1024 / 768,
-    image: "/assets/posters/onboardx.png",
-    imageAlt: "OnboardX Platform",
-    liveUrl: "https://onboardx-enterprise.vercel.app/",
-  },
-  {
     id: "autoswift",
     icon: Compass,
     iconLabel: "AutoSwift",
@@ -96,6 +82,20 @@ const PROJECTS: Project[] = [
     image: "/assets/posters/resqtrack.png",
     imageAlt: "ResQTrack Animal Rescue Platform",
     liveUrl: "https://resq-seven-rose.vercel.app/",
+  },
+  {
+    id: "onboardx",
+    icon: Layers,
+    iconLabel: "OnboardX",
+    title: "Smart Onboarding & Approval System",
+    description:
+      "Web partner onboarding platform for partner registration, dynamic checklist document verification, multi-stage approval workflows, and activity logging.",
+    meta: "Full-Stack Developer Intern | Jun 2025 – Aug 2025",
+    tech: ["React.js", "Django", "DRF", "PostgreSQL", "Bootstrap", "JWT"],
+    imageRatio: 1024 / 768,
+    image: "/assets/posters/onboardx.png",
+    imageAlt: "OnboardX Platform",
+    liveUrl: "https://onboardx-enterprise.vercel.app/",
   },
 ];
 
