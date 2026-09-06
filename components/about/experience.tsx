@@ -67,6 +67,7 @@ const ENTRIES: Entry[] = [
     role: "Full-Stack Developer Intern | Krutanic Solution",
     period: "Jun 2025 – Aug 2025",
     brand: "#f59e0b",
+    liveUrl: "https://onboardx-enterprise.vercel.app/",
     bullets: [
       "Web partner onboarding platform with document verification & approval management.",
       "Dynamic checklist and multi-stage approval workflows with activity logging.",
